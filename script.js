@@ -10,12 +10,23 @@ let personalMovieDB = {
     privat: false,
 }
 
-let a = prompt("Один из последних фильмов который вы посмотрели");
-let b = prompt("Как вы его оцените ?");
-let c = prompt("Один из последних фильмов который вы посмотрели");
-let d = prompt("Как вы его оцените ?");
+for (let i = 0; i < 2; i++) {
+    let a = prompt("Один из последних фильмов который вы посмотрели");
+    let b = prompt("Как вы его оцените ?");
 
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
+    if (a != null && b != null && a.length != 0 && b.length != 0 && a.length < 50) {
+        personalMovieDB.movies[a] = b;
+    } else {
+        i--;
+    }
+}
+
+if (personalMovieDB.count < 10) {
+    alert("Просмотренно слишком мало фильмов");
+} else if (personalMovieDB > 10 && personalMovieDB < 30) {
+    alert("Вы класический зритель");
+} else {
+    alert("Вы киноман!!!");
+}
 
 console.log(personalMovieDB);
